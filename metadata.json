@@ -1,0 +1,6 @@
+{
+  "name": "PaletteLab",
+  "description": "Advanced color detection and palette generator. Extract dominant colors, gradients, and accessibility info from any image with a professional, modern interface.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

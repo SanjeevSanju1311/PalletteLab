@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@400;600;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Cormorant Garamond", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-zinc-950: #0d1317;
+
+  /* Overriding Blue to Deep Ocean Teal (#124E66) */
+  --color-blue-50: #f0f6f8;
+  --color-blue-100: #dbebf1;
+  --color-blue-200: #bcdbe6;
+  --color-blue-300: #8ec2d3;
+  --color-blue-400: #57a1bc;
+  --color-blue-500: #3985a2;
+  --color-blue-600: #124e66;
+  --color-blue-700: #1c4a5c;
+  --color-blue-800: #1b3f4d;
+  --color-blue-900: #1b3641;
+
+  /* Overriding Purple to Sage Blue / Muted Slate (#748D92) */
+  --color-purple-50: #f5f7f7;
+  --color-purple-100: #e3e9ea;
+  --color-purple-200: #cbdbdd;
+  --color-purple-300: #a6c4c7;
+  --color-purple-400: #748d92;
+  --color-purple-500: #5f787c;
+  --color-purple-600: #51666a;
+  --color-purple-700: #465659;
+  --color-purple-800: #3e4a4d;
+  --color-purple-900: #363f41;
+}
+
+@layer base {
+  :root {
+    --bg: #f4f6f6;      /* Clean, crisp pale ocean ash mist */
+    --fg: #212a31;      /* Deep slate dark charcoal */
+    --card: #e4e9ea;    /* Smooth light ash slate card background */
+    --border: #d3dadc;  /* Soft cool slate-gray border */
+    --muted: #5f787c;   /* Deep cool sage-gray muted text */
+    --accent: #124e66;  /* Accent deep ocean teal */
+    color-scheme: light;
+  }
+
+  .dark {
+    --bg: #11161a;      /* Rich slate obsidian derived from #212A31 */
+    --fg: #f4f6f6;      /* Soft starlight ash */
+    --card: #161e24;    /* Slate-charcoal card background */
+    --border: #222f39;  /* Deep ocean slate border */
+    --muted: #748d92;   /* Soft sage blue muted text */
+    --accent: #3985a2;  /* Vibrant ocean teal accent */
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-[var(--bg)] text-[var(--fg)] font-sans antialiased transition-colors duration-300;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/70 dark:bg-[#11161a]/40 backdrop-blur-xl border border-[var(--border)];
+  }
+
+  .glass-card {
+    @apply bg-white/50 dark:bg-[#161e24]/50 backdrop-blur-md border border-[var(--border)] shadow-sm;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400;
+  }
+
+  .section-padding {
+    @apply py-24 md:py-32;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-zinc-300 dark:bg-zinc-700 rounded-full hover:bg-zinc-400 dark:hover:bg-zinc-600 transition-colors;
+}
+
